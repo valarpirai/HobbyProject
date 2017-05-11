@@ -95,17 +95,20 @@ class Whois(object):
     @property
     def query(self):
         '''Start whole process of whois query. This method will do them all.'''
-        whoisServer = self.chooseServer()
+        whois_server = self.chooseServer()
 
-        self.tl_result = self.sendQuery(whoisServer)
+        self.tl_result = self.sendQuery(whois_server)
         self.getActualWhoisSever()
         self.level += 1
 
-        whoisServer = self.chooseServer()
+        whois_server_2 = self.chooseServer()
+        if whois_server_2:
+        	result = self.sendQuery(whois_server)
+        else:
+        	result = self.tl_result
+        	whois_server_2 = whois_server
 
-        result = self.sendQuery(whoisServer)
-
-        return {"whoisServer": whoisServer, "result": result}
+        return {"whois_server": whois_server_2, "result": result}
 
 
 lookup = Whois('npcompete.com', debug=True)

@@ -1,0 +1,17 @@
+Task Details
+----------------------------
+* Whois Registration
+	* Whois request using socket :43
+* IP Address
+	* DNS lookup
+	* List all MX, ALIAS, A and AAAA records
+* Open Ports
+	* Port Scanning
+	* Scan for known and famous ports
+* Web server Details
+	* If
+* App server details
+* Geo Location Details of hosting
+* Hosting details
+	* Hosting Provider
+* OS Details, etc.
