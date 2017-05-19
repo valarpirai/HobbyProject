@@ -110,6 +110,6 @@ class Whois(object):
 
         return {"whois_server": whois_server_2, "result": result}
 
-
-lookup = Whois('npcompete.com', debug=True)
-print(lookup.query)
+if __name__ == '__main__':
+	lookup = Whois('npcompete.com', debug=True)
+	print(lookup.query)

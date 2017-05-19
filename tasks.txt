@@ -2,6 +2,7 @@ Task Details
 ----------------------------
 * Whois Registration
 	* Whois request using socket :43
+	* Whois Guard Protects information
 * IP Address
 	* DNS lookup
 	* List all MX, ALIAS, A and AAAA records
