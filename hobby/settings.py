@@ -56,9 +56,17 @@ ROOT_URLCONF = 'hobby.urls'
 
 TEMPLATES = [
     {
+        'BACKEND': 'django.template.backends.jinja2.Jinja2',
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates/jinja'),
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {'environment': 'hobby.jinja2.Environment',}, 
+    },
+    {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates')
+            os.path.join(BASE_DIR, 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
