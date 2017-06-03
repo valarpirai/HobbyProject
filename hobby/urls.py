@@ -20,6 +20,6 @@ import dnsQuery
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'dns', include('dnsQuery.urls')),
+    url(r'^dns', include('dnsQuery.urls')),
     url(r'^', include('dnsQuery.urls')),
 ]

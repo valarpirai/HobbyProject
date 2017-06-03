@@ -6,3 +6,7 @@ from django.http import HttpResponse
 
 def home(request):
 	return HttpResponse("Hobby Project<br><br>Author<br>-Valar")
+
+def index(request):
+
+	pass
