@@ -16,3 +16,4 @@ Task Details
 * Hosting details
 	* Hosting Provider
 * OS Details, etc.
+* URL Shortner
