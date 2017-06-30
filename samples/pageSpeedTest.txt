@@ -1,0 +1,27 @@
+https://developers.google.com/speed/pagespeed/insights/
+
+<script>var PAGESPEED_API_ROOT_URL='https://www.googleapis.com/pagespeedonline/v3beta1/';var PAGESPEED_API_KEY='AIzaSyAwlPiPJIkTejgqqH01v9DmtPoPeOPXDUQ';var PAGESPEED_API_LOCALE='en_US';var PAGESPEED_APP_VISIBLE_TIME_MS=new Date().getTime();var CAPTCHA_SITE_KEY='6Ld-7wcUAAAAALLhQ8VWC-XbpvdFihdy3fkp5zRF';</script>
+
+var PAGESPEED_API_ROOT_URL='https://www.googleapis.com/pagespeedonline/v3beta1/';
+var PAGESPEED_API_KEY='AIzaSyAwlPiPJIkTejgqqH01v9DmtPoPeOPXDUQ';
+var PAGESPEED_API_LOCALE='en_US';
+var PAGESPEED_APP_VISIBLE_TIME_MS=new Date().getTime();
+var CAPTCHA_SITE_KEY='6Ld-7wcUAAAAALLhQ8VWC-XbpvdFihdy3fkp5zRF';
+
+
+https://www.googleapis.com/pagespeedonline/v3beta1/runPagespeed?
+key=AIzaSyAwlPiPJIkTejgqqH01v9DmtPoPeOPXDUQ
+&screenshot=false
+&snapshots=false
+&locale=en_US
+&url=https%3A%2F%2Fdev.identifor.com%3A9443%2FlandingPage
+&strategy=mobile
+&strategy=desktop
+&filter_third_party_resources=false
+&callback=_callbacks____uWY1fBH0_ASs
+
+
+https://www.googleapis.com/pagespeedonline/v3beta1/runPagespeed?key=AIzaSyAwlPiPJIkTejgqqH01v9DmtPoPeOPXDUQ&screenshot=false&snapshots=false&locale=en_US&url=https%3A%2F%2Fdev.identifor.com%3A9443%2FlandingPage&strategy=desktop&filter_third_party_resources=false
+
+
+
