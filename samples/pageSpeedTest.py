@@ -105,7 +105,7 @@ if __name__ == "__main__":
             print(d_score)
             count += 1
 
-            if count == 10:
+            if count%10 == 0:
                 print("Waiting for 30 seconds. Otherwise captcha will be asked.")
                 time.sleep(30)
 
