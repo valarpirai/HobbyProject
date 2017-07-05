@@ -74,16 +74,23 @@ class PageSpeedInsights(object):
 
         # print(response.text)
         # print(json_data['ruleGroups']['SPEED']['score'])
-        return json_data['ruleGroups']['SPEED']['score']
+        try:
+            score = json_data['ruleGroups']['SPEED']['score']
+        except:
+            score = 0
+            print(response.text)
+
+        return score
 
 
-tester = PageSpeedInsights()
 
 import datetime
+import time
 
 if __name__ == "__main__":
     
     print(datetime.datetime.now())
+    tester = PageSpeedInsights()
     count = 1
     with open('pageSpeed.list', 'r') as f:
         for line in f:
@@ -97,5 +104,9 @@ if __name__ == "__main__":
             d_score = tester.getPagespeedScore(line)
             print(d_score)
             count += 1
+
+            if count == 10:
+                print("Waiting for 30 seconds. Otherwise captcha will be asked.")
+                time.sleep(30)
 
     print(datetime.datetime.now())
