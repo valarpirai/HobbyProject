@@ -68,14 +68,34 @@ class PageSpeedInsights(object):
         url = self.conf['PAGESPEED_API_ROOT_URL'] + 'runPagespeed?key' + self.conf['PAGESPEED_API_KEY'] + \
                 '&screenshot=false&snapshots=false&locale=en_US&filter_third_party_resources=false&strategy=' \
                 + stategy + '&url=' + siteurl
-        print(url)
-        response = requests.get(url, headers=headers, timeout=15)
+        # print(url, end=', ')
+        response = requests.get(url, headers=headers, timeout=25)
         json_data = json.loads(response.text)
 
         # print(response.text)
-        print(json_data['ruleGroups']['SPEED']['score'])
+        # print(json_data['ruleGroups']['SPEED']['score'])
+        return json_data['ruleGroups']['SPEED']['score']
 
 
-test = PageSpeedInsights()
-test.getPagespeedScore('https://dev.identifor.com:9443/landingPage', 'mobile')
-test.getPagespeedScore('https://dev.identifor.com:9443/landingPage')
+tester = PageSpeedInsights()
+
+import datetime
+
+if __name__ == "__main__":
+    
+    print(datetime.datetime.now())
+    count = 1
+    with open('pageSpeed.list', 'r') as f:
+        for line in f:
+            line = line.strip('\n')
+            if not line:
+                continue
+            print(count, end=', ')
+            print(line, end=', ')
+            m_score = tester.getPagespeedScore(line, 'mobile')
+            print(m_score, end=', ')
+            d_score = tester.getPagespeedScore(line)
+            print(d_score)
+            count += 1
+
+    print(datetime.datetime.now())
