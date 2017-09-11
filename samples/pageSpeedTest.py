@@ -31,7 +31,7 @@ class PageSpeedInsights(object):
     """docstring for PageSpeedInsights"""
     def __init__(self):
         super(PageSpeedInsights, self).__init__()
-        
+
         pagespeed_url = 'https://developers.google.com/speed/pagespeed/insights/'
         source_code = requests.get(pagespeed_url, headers=headers, timeout=15)
         plain_text = source_code.text
@@ -42,7 +42,7 @@ class PageSpeedInsights(object):
             if 'PAGESPEED_API_KEY' in x.text:
                 script_tag = x.text
                 break
-        
+
         self.conf = {}
 
         # print(script_tag + '\n')
@@ -88,7 +88,7 @@ import datetime
 import time
 
 if __name__ == "__main__":
-    
+
     print(datetime.datetime.now())
     tester = PageSpeedInsights()
     count = 1
