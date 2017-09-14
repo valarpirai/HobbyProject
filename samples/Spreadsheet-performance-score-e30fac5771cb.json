@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "spreadsheet-performance-score",
+  "private_key_id": "e30fac5771cba0af4459de62a35f8c025bd2fd1b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC+2/YuRWqnby6c\n9kfz+ej3MJgdY6tYttzZP12d64KEsCFt0dVMacergcys/kWbdBkvQ7rlLWlTTv/J\nkMbw6yslLd78rxPLhz6I+hBfCRmx2ll5R52GBPs1qK5L1Ihep2/k8Gl5UYK1xpwN\nZX3uADlWUbRF/NsDH+6KMBFs/o7VrQs1QOXM4tI+RZ6DRru8PqGuURfMPpuHDOpM\neOglIu9+r93Ee/H+T5p+YbW5syNNoSkmbQ/zTMURsKVFBAR22/lKNe4gfYDVHGgG\nIm6l60NNoENz8HJ0o6sRRYFQ0EpoOPXDVc4qClTU1WYUceso8S5iR2lRKtDQDOSQ\nGZi4Rp79AgMBAAECggEAOFjvXuzOlp0cCWoqhwy2q1f06ORWn4vpOtha1rdDotHv\nJKGJFBS8xtU87KvrOAB4OPyJjoSwLlDJ8qPkIBeF9uWKilZUBUgp/b26HJyusdPx\ni31Js9n/onFo9+lI040iW1hhA1i9utXml4vpuFznkKTxkKIctNj2D2Uul9u1pr56\n14hMu02hjx02eegv8XJfxbD6gHvyRqr2IVlNUDvES9E+UI+nh6LC4aWJN3oduncz\nW+FcdUfLdPJa1YgXmT3g12J6r5SbdIMOsROZAO52owd/Xn2AfcXwHZW68N1f/eC6\nR15Kzwdd0hexxkQcXV/edX43sthLlW5zYbbkFTD5rwKBgQD7B0bt088XCKV438iH\n73phUbG4sFzdIdzyufR4xhvRnehGtCi+UvsBHWoTZtG8j/SU1Xx90gAlOI06PHWg\nXyaUPHHNqH/xD5Xi0E5oG6nABINnWbPvsRdgpVlZDfJxePMTDL221Vmb4blJ7/F5\nyNqNOPWNJkBcrG0viXoq8m4DgwKBgQDCo5/m2BSt2yzD0EwvPXG4XAfLbMvy5qZJ\nuDGIuKj/YtcAoUBM1l+o91NTo4nyxSaNOSkkYIbj/cOl/gTJcAn+Hqa4UfKNjcbH\n1v2/mgcXJ8TScaskXRg+OplvzMn58VImDsp/uBsRkJdxx99+HfM9IwoQ6zcbwMmv\nWPttN07LfwKBgQCMN4lgCQLRC+xZ8y4w+Ax01cwerKyCfIrNLh+nYolhcgGvlKx5\neyJnggWhZrpayFJG3GTYZvfb0pXYZLMTbHLBNG4hATDN9vWzJsXVEzajYiIAFbQT\ne+jh/BpHSyoURgoIpwJFYTDXiKMV8KgCbbXeUmWefTJQUaP/fJw35wiafwKBgBkp\nPcqBtGqlIqxNiQuyTbkfbIKHlfXYizaMcRrThEU/abvTHJTSQZt+HW96fKK9ibZH\n5WGmeMmQTHJw2/2OVjxbigHZ1hkmcsPyrurN5oy/v1nVB+KzhibFPICPYKzG3W++\nCb9o9VbX8jvrMqEDDiahGPQG9CDKU0gvoJEFzVHRAoGBAMXDyadwSoZBLU3Djh8h\nV+hlVRWN1R1CSxh7txNvl9xAvwklwoSEUaKfARy6AoZrDqQi1rAL7t5Xp0ejU5wH\ng6C7A5C5JHTrhTMoRJVQCxWW3yOlqUMzvlvrNA06yqjn2OaA23v3Gm+GJwLvf0PL\nNOjbJomvt4Yyw6Ox6S0LuTZa\n-----END PRIVATE KEY-----\n",
+  "client_email": "performancescorecollector@spreadsheet-performance-score.iam.gserviceaccount.com",
+  "client_id": "113640927707307724049",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/performancescorecollector%40spreadsheet-performance-score.iam.gserviceaccount.com"
+}
