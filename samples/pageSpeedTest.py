@@ -32,32 +32,15 @@ class PageSpeedInsights(object):
     def __init__(self):
         super(PageSpeedInsights, self).__init__()
 
-        pagespeed_url = 'https://developers.google.com/speed/pagespeed/insights/'
-        source_code = requests.get(pagespeed_url, headers=headers, timeout=15)
-        plain_text = source_code.text
-        soup = BeautifulSoup(plain_text, "html.parser")
-        scripts = soup.findAll('script')
+        self.api_endpoint = 'https://www.googleapis.com/pagespeedonline/v2/runPagespeed?'
+        self.API_KEY = 'XXXXX'
 
-        for x in scripts:
-            if 'PAGESPEED_API_KEY' in x.text:
-                script_tag = x.text
-                break
-
-        self.conf = {}
-
-        # print(script_tag + '\n')
-        if script_tag:
-            variables = script_tag.split("var ")
-            for variable in variables:
-                if variable is not '':
-                    variable = variable.replace('\'', '')
-                    variable = variable.replace(';', '')
-                    l_var = variable.split('=')
-                    self.conf[l_var[0]] = l_var[1]
-
-        for key in self.conf:
-            print(key, " : ", self.conf[key])
-
+        # filter_third_party_resources=false&
+        # screenshot=false&
+        # strategy=desktop&
+        # url=https%3A%2F%2Fstg.identifor.com%2F&
+        # key=AIzaSyD-a9IF8KKYgoC3cpgS-Al7hLQDbugrDcw
+        
         print("Got Page Speed API keys")
 
     def getPagespeedScore(self, siteurl, stategy='desktop'):
@@ -65,20 +48,25 @@ class PageSpeedInsights(object):
         if not siteurl:
             return {}
 
-        url = self.conf['PAGESPEED_API_ROOT_URL'] + 'runPagespeed?key' + self.conf['PAGESPEED_API_KEY'] + \
-                '&screenshot=false&snapshots=false&locale=en_US&filter_third_party_resources=false&strategy=' \
-                + stategy + '&url=' + siteurl
-        # print(url, end=', ')
-        response = requests.get(url, headers=headers, timeout=25)
-        json_data = json.loads(response.text)
+        url = self.api_endpoint + 'screenshot=false&locale=en_US&filter_third_party_resources=false&strategy=' \
+                + stategy + '&url=' + siteurl + '&key=' + self.API_KEY
+        try:
+            # print(url)
+            response = requests.get(url, headers=headers, timeout=25)
+            json_data = json.loads(response.text)
+        except Exception as e:
+            print('Error requesting : ' + siteurl)
+            print('Error : ' + str(e))
+        
 
         # print(response.text)
         # print(json_data['ruleGroups']['SPEED']['score'])
         try:
             score = json_data['ruleGroups']['SPEED']['score']
-        except:
+        except Exception as e:
+            print('Error : ' + str(e))
             score = 0
-            print(response.text)
+            # print(response.text)
 
         return score
 
