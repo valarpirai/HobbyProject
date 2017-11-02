@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_mongoengine import MongoEngine, MongoEngineSessionInterface
 
-from flask_admin import Admin
+import flask_admin as admin
 from flask_admin.contrib.mongoengine import ModelView
 
 from .models import db, Test
@@ -9,8 +9,8 @@ from .models import db, Test
 app = Flask(__name__)
 flask_app = app
 
-admin = Admin(app, name='microblog', template_mode='bootstrap3')
-# admin.add_view(ModelView(Test, db.session))
+admin = admin.Admin(app, 'Example: MongoEngine')
+admin.add_view(ModelView(Test))
 # flask_app.config.from_pyfile('config.cfg')
 
 # app.config['MONGODB_SETTINGS'] = {
@@ -36,7 +36,7 @@ def index():
     ross.first_name = 'Ross'
     ross.last_name = 'Lawley'
     ross.save()
-    return 'Index page'
+    return '<a href="/admin/">Click me to get to Admin!</a>'
 
 
 @app.route('/hello')
