@@ -20,10 +20,10 @@ admin = Admin(app, name='microblog', template_mode='bootstrap3')
 app.debug = True
 
 app.config['MONGODB_DB'] = 'project1'
-app.config['MONGODB_HOST'] = '127.0.0.1'
-app.config['MONGODB_PORT'] = 27017
-app.config['MONGODB_USERNAME'] = 'admin'
-app.config['MONGODB_PASSWORD'] = 'abc123'
+app.config['MONGODB_HOST'] = 'mongodb://127.0.0.1:27017/'
+# app.config['MONGODB_PORT'] = 27017
+app.config['MONGODB_USERNAME'] = 'hello'
+app.config['MONGODB_PASSWORD'] = 'world'
 
 
 db.init_app(app)
