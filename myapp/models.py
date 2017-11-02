@@ -1,13 +1,9 @@
-from mongoengine import *
+from flask_mongoengine.wtf import model_form
+from flask_mongoengine import MongoEngine
 
+db = MongoEngine()
 
-class Metadata(EmbeddedDocument):                   # class that inherits from
-    tags = ListField(StringField())                 # Document.
-    revisions = ListField(IntField())
-    # Fields are specified by
-
-
-class WikiPage(Document):                           # adding field objects as
-    title = StringField(required=True)              # class attributes to the
-    text = StringField()                            # document class.
-    metadata = EmbeddedDocumentField(Metadata)
+class Test(db.Document):
+    email = db.StringField()
+    first_name = db.StringField(max_length=50)
+    last_name = db.StringField(max_length=50)
