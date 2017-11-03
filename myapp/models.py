@@ -8,7 +8,14 @@ import datetime
 
 db = MongoEngine()
 
-class Test(db.Document):
-    email = db.StringField()
-    first_name = db.StringField(max_length=50)
-    last_name = db.StringField(max_length=50)
+class WebResult(db.Document):
+    search_str = db.StringField(max_length=100)
+    data = db.DictField()
+    created = db.DateTimeField(default=datetime.datetime.now)
+    modified = db.DateTimeField(default=datetime.datetime.now)
+
+    def save(self, *args, **kwargs):
+        if not self.created:
+            self.created = datetime.datetime.now()
+        self.modified = datetime.datetime.now()
+        return super(WebResult, self).save(*args, **kwargs)
