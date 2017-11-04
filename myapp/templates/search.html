@@ -5,18 +5,33 @@
 {% endblock %}
 
 {% block content %}
-    <h1> {{ title }}</h1>
-    <a href="/delete/{{ title }}"> <i class="material-icons">delete_forever</i></a>
+    <div class="row">
+        <h1 class="capitalize col-sm-12">
+            {{ title }}
+            <a href="/delete/{{ title }}"> <i class="material-icons">delete_forever</i></a>
+        </h1>
 
-    <div class="list-group">
-        {% for r in results.results %}
-            <a class="list-group-item list-group-item-light list-group-item-action" target="_blank" href="{{ r.link }}">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">{{ r.text }}</h5>
-                    <small>3 days ago</small>
-                </div>
-                <small>{{ r.link }}</small>
-            </a>
-        {% endfor %}
+        <div class="list-group col-sm-12 col-lg-6">
+            {% for r in results.results %}
+                <a class="list-group-item list-group-item-light list-group-item-action" target="_blank" href="{{ r.link }}">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{ r.text }}</h5>
+                        <small>Just now</small>
+                    </div>
+                    <small>{{ r.link }}</small>
+                </a>
+            {% endfor %}
+        </div>
+
+        <div class="col-sm-12 col-lg-6">
+            <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
