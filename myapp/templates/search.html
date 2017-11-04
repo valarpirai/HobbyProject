@@ -6,4 +6,10 @@
 
 {% block content %}
     This page contains search results {{ title }}
+
+    <ul>
+        {% for r in results.results %}
+            <li><a target="_blank" href="{{ r.link }}">{{ r.text }}</a></li>
+        {% endfor %}
+    </ul>
 {% endblock %}

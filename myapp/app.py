@@ -4,6 +4,7 @@ import flask_admin as admin
 from flask_admin.contrib.mongoengine import ModelView
 
 from .models import db, WebResult
+from myapp.scraper import google
 
 app = Flask(__name__)
 flask_app = app
@@ -24,6 +25,7 @@ app.config['MONGODB_PASSWORD'] = 'world'
 db.init_app(app)
 app.session_interface = MongoEngineSessionInterface(db)
 
+google_search = google.GoogleSearch()
 
 @app.route('/', methods=['GET'])
 def index():
@@ -36,16 +38,53 @@ def index():
 def hello():
     return 'Hello, World'
 
-
 @app.route('/search', methods=['POST'])
 def search():
     search_str = request.form['search']
-    return render_template('search.html', title=search_str)
+
+    existing_result = WebResult.objects(search_str=search_str)
+
+    if existing_result is None or len(existing_result) == 0:
+        results = google_search.getResult(search_str)
+
+        record = WebResult()
+        record.search_str = search_str
+        record.data = results
+        record.save()
+    else:
+        results = existing_result[0].data
+
+    return render_template('search.html', title=search_str, results=results)
 
 @app.route('/search/<search_str>', methods=['GET', 'POST'])
 def search_web(search_str):
-    # show the user profile for that user
-    return render_template('search.html', title=search_str)
+    
+    existing_result = WebResult.objects(search_str=search_str)
+
+    if existing_result is None or len(existing_result) == 0:
+        results = {}
+    else:
+        results = existing_result[0].data
+
+    return render_template('search.html', title=search_str, results=results)
+
+
+@app.route('/delete/<search_str>', methods=['GET'])
+def delete_res(search_str):
+
+    existing_result = WebResult.objects(search_str=search_str)
+    for res in existing_result:
+        res.delete()
+
+    return redirect('/', code=302)
 
 # Result list page
 # Single Result Page : search query, result page
+
+
+# Google
+# Wikipedia
+# Twitter
+# FB
+# LinkedIn
+#
