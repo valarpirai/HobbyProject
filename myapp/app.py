@@ -54,19 +54,19 @@ def search():
     else:
         results = existing_result[0].data
 
-    return render_template('search.html', title=search_str, results=results)
+    return render_template('search.html', title=search_str, data=results)
 
 @app.route('/search/<search_str>', methods=['GET', 'POST'])
 def search_web(search_str):
     
     existing_result = WebResult.objects(search_str=search_str)
 
-    if existing_result is None or len(existing_result) == 0:
-        results = {}
+    if len(existing_result) == 0:
+        results = None
     else:
         results = existing_result[0].data
 
-    return render_template('search.html', title=search_str, results=results)
+    return render_template('search.html', title=search_str, data=results)
 
 
 @app.route('/delete/<search_str>', methods=['GET'])

@@ -55,17 +55,41 @@ class GoogleSearch(object):
         res_data = {}
         soup = BeautifulSoup(html, 'html.parser')
         
-        x = []
-        results = soup.select('div.g h3')
-        for result in results:
-            links = result.select('a[href]')
-            # print(links)
-            resp_list = [{'link': link['href'].strip(), 'text': link.text.strip()} for link in links]
-            # print(resp_list)
-            x.extend(resp_list)
+        results = soup.select('div.g h3 a[href]')
+        resp_list = [{'link': link['href'].strip(), 'text': link.text.strip()}
+                     for link in results]
 
-        res_data['results'] = x
+        res_data['results'] = resp_list
+
+        rhs_soup = soup.select('div#rhs')
+        try:
+            res_data['rhs'] = self.parse_rhs(rhs_soup[0])
+        except Exception as e:
+            res_data['rhs'] = {}
+
         return res_data
+
+    def parse_rhs(self, rhs_soup):
+        rhs_data = {}
+        rhs_data['title'] = self.get_text(rhs_soup, '#rhs_title span')
+        rhs_data['sub_title'] = self.get_text(rhs_soup, '#rhs_title + div span')
+
+        details = {}
+        details_ele = rhs_soup.select('div.mod ._eFb')
+        for detail in details_ele:
+            key = self.get_text(detail, '._xdb')
+            value = self.get_text(detail, '._Xbe')
+            details[key] = value
+
+        rhs_data['details'] = details
+
+        return rhs_data
+
+    def get_text(self, parent, element):
+        ele = parent.select(element)
+        if len(ele) > 0:
+            return ele[0].text.strip()
+        return ''
           
 def is_url(url):
     """
