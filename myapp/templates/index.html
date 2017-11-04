@@ -5,8 +5,16 @@
 {% block content %}
 
 
-<h1>Index</h1>
-<p class="important">
-    Welcome to my awesome homepage.
-</p>
+    <h1>Index</h1>
+    <p class="important">
+        Welcome to my awesome homepage.
+    </p>
+
+    {% for row in results %}
+        <div>
+            <a href="/search/{{ row.search_str }}">
+                {{ row.search_str }}
+            </a>
+        </div>
+    {% endfor %}
 {% endblock %}

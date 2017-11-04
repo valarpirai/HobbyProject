@@ -1,5 +1,4 @@
-from flask import Flask
-from flask import render_template
+from flask import Flask, render_template, request
 from flask_mongoengine import MongoEngine, MongoEngineSessionInterface
 import flask_admin as admin
 from flask_admin.contrib.mongoengine import ModelView
@@ -9,13 +8,9 @@ from .models import db, WebResult
 app = Flask(__name__)
 flask_app = app
 
-admin = admin.Admin(app, 'Example: MongoEngine')
+admin = admin.Admin(app, 'Hobby Project')
 admin.add_view(ModelView(WebResult))
 # flask_app.config.from_pyfile('config.cfg')
-
-# app.config['MONGODB_SETTINGS'] = {
-#     'host': 'mongodb://admin:abc123@127.0.0.1:27017/test'
-# }
 
 app.debug = True
 
@@ -32,21 +27,25 @@ app.session_interface = MongoEngineSessionInterface(db)
 
 @app.route('/', methods=['GET'])
 def index():
-    # ross = WebResult()
+    res = WebResult.objects()
     # ross.search_str = 'dummy'
     # ross.save()
-    return render_template('index.html')
-
+    return render_template('index.html', results=res)
 
 @app.route('/hello')
 def hello():
     return 'Hello, World'
 
+
+@app.route('/search', methods=['POST'])
+def search():
+    search_str = request.form['search']
+    return render_template('search.html', title=search_str)
+
 @app.route('/search/<search_str>', methods=['GET', 'POST'])
 def search_web(search_str):
     # show the user profile for that user
-    return 'User %s' % search_str
+    return render_template('search.html', title=search_str)
 
-# A list page
-# Get search query
-# Post result page
+# Result list page
+# Single Result Page : search query, result page
