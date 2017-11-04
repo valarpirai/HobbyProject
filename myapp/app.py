@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from flask_mongoengine import MongoEngine, MongoEngineSessionInterface
 import flask_admin as admin
 from flask_admin.contrib.mongoengine import ModelView

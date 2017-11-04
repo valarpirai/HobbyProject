@@ -5,11 +5,18 @@
 {% endblock %}
 
 {% block content %}
-    This page contains search results {{ title }}
+    <h1> {{ title }}</h1>
+    <a href="/delete/{{ title }}"> <i class="material-icons">delete_forever</i></a>
 
-    <ul>
+    <div class="list-group">
         {% for r in results.results %}
-            <li><a target="_blank" href="{{ r.link }}">{{ r.text }}</a></li>
+            <a class="list-group-item list-group-item-light list-group-item-action" target="_blank" href="{{ r.link }}">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{ r.text }}</h5>
+                    <small>3 days ago</small>
+                </div>
+                <small>{{ r.link }}</small>
+            </a>
         {% endfor %}
-    </ul>
+    </div>
 {% endblock %}
