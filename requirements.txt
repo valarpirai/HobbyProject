@@ -29,7 +29,7 @@ PyAudio==0.2.8
 pycodestyle==2.3.1
 pycrypto==2.6.1
 pyOpenSSL==0.15.1
-PyYAML==3.11
+PyYAML==5.4
 requests==2.9.1
 singledispatch==3.4.0.3
 six==1.10.0
